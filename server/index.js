@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// mongodb+srv://timek70:<password>@boilerplate.jifwa.mongodb.net/?retryWrites=true&w=majority
 const mongoose = require('mongoose');
 const { json } = require('express/lib/response');
 const req = require('express/lib/request');
@@ -25,7 +24,11 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.post('api/users/register', (req, res) => {
+app.get('/api/hello', (req, res) => {
+    res.send("안녕하세요 ~");
+})
+
+app.post('/api/users/register', (req, res) => {
     // 회원 가입 할 때 필요한 정보들을 client에서 가져오면 DB에 넣어줌
 
     const user = new User(req.body)
