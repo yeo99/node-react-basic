@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // App을 Provider를 이용하여 Redux에 연결해줘야함
 import { Provider } from 'react-redux';
-import 'antd/dist/antd.css';
+// react-script가 5.0.0 으로 업그레이드 되며 웹팩에서 parse하지 못하는 오류 발생. antd.css를 antd.min.css로 변경해줘야함
+// https://github.com/ant-design/ant-design/issues/33327
+import 'antd/dist/antd.min.css';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleWare from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
